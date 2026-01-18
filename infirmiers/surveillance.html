@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Surveillance & constantes – ImprimablesSanté</title>
+  <meta name="description" content="Fiches de suivi infirmier : TA, température, SpO2, douleur, hydratation, poids et observation quotidienne.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS identique à l'index */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;} body{font-family:'Inter',Arial,sans-serif;background:#fafafb;color:#2e2e2e;line-height:1.7;}
+    :root{--primary:#1d3f72;--primary-light:#3267a8;--accent:#ffffff;--text-dark:#1c1c1e;--text-muted:#555;--border:#e1e4e8;--shadow-light:rgba(0,0,0,0.08);}
+    nav{position:fixed;top:0;width:100%;background:var(--primary);padding:15px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav a{color:#fff;text-decoration:none;font-weight:600;margin-left:25px;transition:opacity 0.3s;} nav a:hover{opacity:0.8;} nav .logo{font-size:1.6rem;font-weight:700;}
+    header{background:var(--primary);color:#fff;text-align:center;padding:100px 20px 60px 20px;margin-top:60px;}
+    header h1{font-size:2.8rem;margin-bottom:12px;} header p{font-size:1.2rem;opacity:0.9;}
+    main.container{max-width:1200px;margin:0 auto;padding:60px 20px;}
+    section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:var(--primary);}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-bottom:60px;}
+    .card{background:var(--accent);border-radius:14px;padding:28px 24px;box-shadow:0 8px 20px var(--shadow-light);border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,0.12);}
+    .card h3{font-size:1.4rem;color:var(--primary);margin-bottom:12px;}
+    .card p{font-size:1rem;color:var(--text-muted);}
+    .icon-block{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+    .icon-block img{width:32px;height:32px;}
+    .btn{display:inline-block;padding:14px 28px;background:var(--primary);color:#fff;font-weight:600;border-radius:10px;text-decoration:none;border:2px solid transparent;transition:background 0.3s,border-color 0.3s,transform 0.2s;}
+    .btn:hover{background:var(--primary-light);border-color:var(--primary-light);transform:scale(1.04);}
+    footer{background:var(--primary);color:#fff;text-align:center;padding:35px 20px;font-size:0.95rem;}
+    footer a{color:#fff;text-decoration:underline;}
+    footer p{margin-bottom:5px;}
+    @media(max-width:768px){nav a{margin-left:15px;}header h1{font-size:2.2rem;}header p{font-size:1.05rem;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ImprimablesSanté</div>
+  <div>
+    <a href="/index.html">Accueil</a>
+    <a href="index.html">Ressources infirmiers</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Surveillance & constantes</h1>
+  <p>Fiches de suivi : TA, température, SpO2, douleur, hydratation, poids et observation quotidienne.</p>
+</header>
+
+<main class="container">
+  <section class="intro">
+    <p>Ces documents vous permettent de suivre les constantes et observations essentielles pour chaque patient.</p>
+  </section>
+
+  <section>
+    <h2>Documents disponibles</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/heart.png"/>
+          <h3>TA et pulsations</h3>
+        </div>
+        <p>Fiche de suivi tension artérielle et pulsations.</p>
+        <a href="pdf/ta-pulsations.pdf" class="btn" target="_blank">Télécharger PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/thermometer.png"/>
+          <h3>Température</h3>
+        </div>
+        <p>Suivi de la température corporelle des patients.</p>
+        <a href="pdf/temperature.pdf" class="btn" target="_blank">Télécharger PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/oxygen-mask.png"/>
+          <h3>SpO2</h3>
+        </div>
+        <p>Suivi de la saturation en oxygène.</p>
+        <a href="pdf/spo2.pdf" class="btn" target="_blank">Télécharger PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/pill.png"/>
+          <h3>Douleur & hydratation</h3>
+        </div>
+        <p>Observation de la douleur et hydratation quotidienne.</p>
+        <a href="pdf/douleur-hydratation.pdf" class="btn" target="_blank">Télécharger PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/weight.png"/>
+          <h3>Poids</h3>
+        </div>
+        <p>Suivi du poids et évolution du patient.</p>
+        <a href="pdf/poids.pdf" class="btn" target="_blank">Télécharger PDF</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <p>© 2026 – ImprimablesSanté</p>
+  <p>Documents fournis à titre informatif – ne remplacent pas un avis médical ou juridique.</p>
+  <a href="#contact">Mentions légales</a>
+</footer>
+
+</body>
+</html>
