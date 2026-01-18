@@ -1,181 +1,1244 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>ImprimablesSanté – Documents santé gratuits à imprimer</title>
-<meta name="description" content="ImprimablesSanté propose des documents professionnels gratuits à imprimer pour les soignants : fiches de suivi patients, dossiers de soins, constantes, pathologies, organisation.">
+<meta name="description" content="Des documents professionnels gratuits pour les soignants : fiches de suivi, dossiers de soins, surveillance. Téléchargez et imprimez instantanément.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Fonts -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-/* ── RESET & BASE ───────────────────────────────────────── */
-* {margin:0;padding:0;box-sizing:border-box;}
-html {scroll-behavior:smooth;}
-body {font-family:'Inter',system-ui,sans-serif; background:#f8fafd; color:#1e293b; line-height:1.65; overflow-x:hidden;}
+/* ══════════════════════════════════════════════════════════
+   RESET & BASE
+   ══════════════════════════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --primary:#1e40af; --primary-dark:#1e3a8a; --primary-light:#3b82f6;
-  --accent:#06b6d4; --accent-soft:#5eead4; --corail:#f87171;
-  --bg:#f8fafd; --card-bg:rgba(255,255,255,0.75); --text:#0f172a; --text-muted:#64748b;
-  --border:rgba(226,232,240,0.8); --shadow-sm:0 6px 20px rgba(0,0,0,0.08);
-  --shadow-md:0 12px 32px rgba(30,64,175,0.12); --radius:16px; --transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);
+  /* Couleurs vibrantes et vivantes */
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --accent: #10b981;
+  --accent-warm: #f59e0b;
+  --coral: #ef4444;
+  --purple: #8b5cf6;
+  --pink: #ec4899;
+  
+  /* Teintes pastel douces */
+  --pastel-blue: #dbeafe;
+  --pastel-green: #d1fae5;
+  --pastel-yellow: #fef3c7;
+  --pastel-pink: #fce7f3;
+  
+  --bg: #fafbfc;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  
+  /* Typographie moderne */
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'DM Serif Display', serif;
 }
 
-/* ── NAVBAR ────────────────────────────────────────────── */
-nav {position:fixed; inset:0 0 auto 0; height:80px; background:rgba(30,64,175,0.92); backdrop-filter:blur(12px); color:white; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; z-index:1000; transition:var(--transition);}
-nav.scrolled {background:rgba(30,64,175,0.96); box-shadow:0 4px 20px rgba(0,0,0,0.15);}
-.logo {font-size:1.75rem; font-weight:700; letter-spacing:-0.5px;}
-nav a {color:white; text-decoration:none; font-weight:500; margin-left:2.2rem; position:relative; transition:var(--transition);}
-nav a::after {content:''; position:absolute; width:0; height:2px; bottom:-6px; left:0; background:var(--accent); transition:width 0.35s ease;}
-nav a:hover::after, nav a.active::after {width:100%;}
-
-/* ── HERO ──────────────────────────────────────────────── */
-.hero {min-height:100vh; display:grid; place-items:center; text-align:center; background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 50%,#3b82f6 100%); color:white; padding:0 5vw; position:relative; overflow:hidden;}
-.hero::before {content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 70%, rgba(6,182,212,0.18) 0%, transparent 50%); pointer-events:none;}
-.hero-content {position:relative; z-index:2; max-width:900px;}
-.hero h1 {font-size:clamp(2.8rem,6vw,4.2rem); font-weight:700; margin-bottom:1.4rem; line-height:1.1; letter-spacing:-1px;}
-.hero p {font-size:clamp(1.2rem,3vw,1.45rem); max-width:620px; margin:0 auto 2.5rem; opacity:0.92; font-weight:300;}
-.btn {display:inline-flex; align-items:center; justify-content:center; padding:0.95rem 2.2rem; font-size:1.05rem; font-weight:600; background:white; color:var(--primary); border-radius:50px; text-decoration:none; border:none; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:var(--transition); position:relative; overflow:hidden;}
-.btn::before {content:''; position:absolute; inset:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform:translateX(-100%); transition:transform 0.6s;}
-.btn:hover::before {transform:translateX(100%);}
-.btn:hover {transform:translateY(-4px); box-shadow:0 12px 32px rgba(30,64,175,0.28); background:#f8fafd;}
-.btn-accent {background:var(--accent); color:white;}
-
-/* ── MAIN ─────────────────────────────────────────────── */
-main.container {max-width:1240px; margin:0 auto; padding:140px 5vw 100px;}
-section h2 {text-align:center; font-size:clamp(2.2rem,5vw,3.1rem); font-weight:700; margin-bottom:4rem; color:var(--primary); position:relative;}
-section h2::after {content:''; width:90px; height:4px; background:var(--accent); position:absolute; bottom:-14px; left:50%; transform:translateX(-50%); border-radius:2px;}
-.grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2.2rem;}
-.card {background:var(--card-bg); backdrop-filter:blur(16px); border:1px solid var(--border); border-radius:var(--radius); padding:2.2rem 1.9rem; box-shadow:var(--shadow-sm); transition:var(--transition); opacity:0; transform:translateY(35px); animation:cardFadeIn 0.9s forwards;}
-@keyframes cardFadeIn {to {opacity:1; transform:translateY(0);}}
-.card:hover {transform:translateY(-10px); box-shadow:var(--shadow-md);}
-.card h3 {font-size:1.45rem; color:var(--primary); margin-bottom:0.9rem;}
-.icon-block {display:flex; align-items:center; gap:1rem; margin-bottom:1.1rem;}
-.icon-block img {width:48px; height:48px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(30,64,175,0.25)); transition:transform 0.5s ease;}
-.card:hover .icon-block img {transform:scale(1.12) rotate(8deg);}
-
-/* ── FUTURE ────────────────────────────────────────────── */
-.future {background:linear-gradient(135deg, rgba(5,182,212,0.08) 0%, rgba(248,250,253,0.4) 100%); backdrop-filter:blur(10px); border:1px solid rgba(5,182,212,0.15); border-radius:var(--radius); padding:3.5rem 2.5rem; text-align:center; margin:6rem 0 4rem;}
-
-/* ── FOOTER ────────────────────────────────────────────── */
-footer {background:var(--primary); color:rgba(255,255,255,0.92); text-align:center; padding:4rem 5vw 2.5rem;}
-footer a {color:var(--accent-soft); text-decoration:none; font-weight:500;}
-
-/* ── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width:820px){
-  nav{padding:0 6vw;}
-  nav a{margin-left:1.4rem; font-size:0.95rem;}
-  .hero h1{font-size:3.1rem;}
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-@media (max-width:480px){
-  .grid{grid-template-columns:1fr;}
-  .hero h1{font-size:2.8rem;}
-  .hero p{font-size:1.1rem;}
+
+/* ══════════════════════════════════════════════════════════
+   ANIMATIONS KEYFRAMES
+   ══════════════════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-emoji {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HERO SECTION - VIVANT ET DYNAMIQUE
+   ══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+/* Formes décoratives flottantes */
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  top: 10%;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  bottom: 10%;
+  left: -80px;
+  animation-delay: 1s;
+}
+
+.shape-3 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--accent-warm), var(--purple));
+  top: 50%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.hero-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  z-index: 2;
+}
+
+.hero-content {
+  animation: slideInLeft 1s ease-out;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: scaleIn 0.8s ease-out 0.3s backwards;
+}
+
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.hero-content h1 .highlight {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-content h1 .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  opacity: 0.3;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1s ease-out 0.7s backwards;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.9s backwards;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Hero Visual - Images réelles */
+.hero-visual {
+  position: relative;
+  animation: slideInRight 1s ease-out;
+}
+
+.visual-collage {
+  position: relative;
+  height: 600px;
+}
+
+.collage-item {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collage-item:hover {
+  transform: scale(1.05) rotate(2deg);
+  z-index: 10;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collage-main {
+  width: 380px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  animation: fadeInUp 1.2s ease-out 0.4s backwards;
+}
+
+.collage-top {
+  width: 220px;
+  height: 180px;
+  top: 0;
+  right: 0;
+  border: 5px solid white;
+  animation: scaleIn 1s ease-out 0.6s backwards;
+}
+
+.collage-bottom {
+  width: 240px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  border: 5px solid white;
+  animation: scaleIn 1s ease-out 0.8s backwards;
+}
+
+.collage-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  animation: scaleIn 1s ease-out 1s backwards;
+}
+
+.badge-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION STATS - VIVANTE
+   ══════════════════════════════════════════════════════════ */
+.stats-section {
+  background: white;
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stats-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MAIN CONTENT
+   ══════════════════════════════════════════════════════════ */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 2rem;
+}
+
+.section {
+  margin-bottom: 120px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+  color: var(--primary);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CARDS GRID - AVEC IMAGES
+   ══════════════════════════════════════════════════════════ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.resource-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.resource-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.card-icon {
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.card-content {
+  padding: 3rem 2rem 2rem;
+}
+
+.card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.card-content p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.card-link:hover {
+  gap: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CTA SECTION ILLUSTRÉE
+   ══════════════════════════════════════════════════════════ */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  margin: 100px 0;
+}
+
+.cta-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 5rem;
+}
+
+.cta-content {
+  color: white;
+  z-index: 2;
+  position: relative;
+}
+
+.cta-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.cta-list {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+
+.cta-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.cta-list li::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cta-image {
+  position: relative;
+  height: 400px;
+}
+
+.cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════ */
+footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5rem 2rem 2rem;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-about h3 {
+  font-family: var(--font-display);
+  color: white;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.footer-about p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section h4 {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-visual {
+    display: none;
+  }
+  
+  .cta-container {
+    grid-template-columns: 1fr;
+    padding: 3rem;
+  }
+  
+  .cta-image {
+    height: 300px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .main-container {
+    padding: 60px 1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
+
 </head>
 <body>
 
-<nav>
-  <div class="logo">ImprimablesSanté</div>
-  <div>
-    <a href="infirmiers/index.html">Infirmiers</a>
-    <a href="#future">Futur</a>
-    <a href="#contact">Contact</a>
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════════════════════ -->
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <span class="logo-emoji">🏥</span>
+      ImprimablesSanté
+    </a>
+    <div class="nav-links">
+      <a href="#ressources">Ressources</a>
+      <a href="#avantages">Avantages</a>
+      <a href="#futur">Futur</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION
+     ══════════════════════════════════════════════════════════ -->
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>Documents santé gratuits & professionnels</h1>
-    <p>Fiches pratiques, dossiers de soins, surveillance, pansements, pathologies et organisation — conçus pour les soignants.</p>
-    <a href="infirmiers/index.html" class="btn btn-accent">Découvrir les ressources infirmiers</a>
-  </div>
-</section>
+  <div class="hero-shape shape-1"></div>
+  <div class="hero-shape shape-2"></div>
+  <div class="hero-shape shape-3"></div>
 
-<main class="container">
-<section class="intro">
-<p>ImprimablesSanté vous propose des outils clairs, actualisés et immédiatement utilisables pour faciliter votre pratique quotidienne. Début 2026 : focus infirmier — ouverture progressive vers d'autres métiers de santé.</p>
-</section>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        ⚡ Nouveauté 2026
+      </div>
+      <h1>
+        Documents santé <span class="highlight">gratuits</span> pour professionnels
+      </h1>
+      <p>
+        Téléchargez instantanément des fiches pratiques, dossiers de suivi et outils de surveillance conçus pour simplifier votre quotidien de soignant. Plus de 30 documents professionnels à imprimer.
+      </p>
 
-<section id="infirmiers">
-<h2>Ressources pour infirmiers</h2>
-<div class="grid">
-  <div class="card" style="--order:1">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/folder-invoices.png" alt="Dossier patient"/>
-      <h3>Dossier patient</h3>
-    </div>
-    <p>Recueil de données, antécédents, infos administratives, niveau d’autonomie.</p>
-    <a href="infirmiers/dossier-patient.html" class="btn btn-accent">Voir les fiches</a>
-  </div>
-
-  <div class="card" style="--order:2">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/stethoscope.png" alt="Constantes"/>
-      <h3>Surveillance & constantes</h3>
-    </div>
-    <p>TA, pouls, SpO₂, douleur, hydratation, poids, observations quotidiennes.</p>
-    <a href="infirmiers/surveillance.html" class="btn btn-accent">Voir les fiches</a>
-  </div>
-
-  <div class="card" style="--order:3">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/pill.png" alt="Médicaments"/>
-      <h3>Médicaments</h3>
-    </div>
-    <p>Suivi thérapeutique, observance, pilulier, anticoagulants oraux.</p>
-    <a href="infirmiers/medicaments.html" class="btn btn-accent">Voir les fiches</a>
-  </div>
-
-  <div class="card" style="--order:4">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/band-aid.png" alt="Pansements"/>
-      <h3>Pansements & plaies</h3>
-    </div>
-    <p>Évaluation, suivi, prévention des escarres, pansements modernes.</p>
-    <a href="infirmiers/pansements.html" class="btn btn-accent">Voir les fiches</a>
-  </div>
-
-  <div class="card" style="--order:5">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/heart.png" alt="Pathologies"/>
-      <h3>Pathologies chroniques</h3>
-    </div>
-    <p>Diabète, IC, BPCO, HTA, éducation thérapeutique patient.</p>
-    <a href="infirmiers/pathologies.html" class="btn btn-accent">Voir les fiches</a>
-  </div>
-
-  <div class="card" style="--order:6">
-    <div class="icon-block">
-      <img src="https://img.icons8.com/ios-filled/50/1d3f72/organization.png" alt="Organisation"/>
-      <h3>Organisation des soins</h3>
-    </div>
-    <p>Plan de soins, transmissions, coordination, priorisation.</p>
-    <a href="infirmiers/organisation.html" class="btn btn-accent">Voir les fiches</a>
+```
+  <div class="hero-cta">
+    <a href="#ressources" class="btn btn-primary">
+      <span>📥 Découvrir les ressources</span>
+    </a>
+    <a href="infirmiers/index.html" class="btn btn-secondary">
+      <span>Accès infirmiers →</span>
+    </a>
   </div>
 </div>
+
+<div class="hero-visual">
+  <div class="visual-collage">
+    <div class="collage-item collage-main">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=900&fit=crop&q=80" alt="Infirmière professionnelle">
+    </div>
+    <div class="collage-item collage-top">
+      <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=300&fit=crop&q=80" alt="Documents médicaux">
+    </div>
+    <div class="collage-item collage-bottom">
+      <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&h=350&fit=crop&q=80" alt="Soins infirmiers">
+    </div>
+    <div class="collage-badge">
+      <div class="badge-number">30+</div>
+      <div class="badge-text">Fiches PDF</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
 </section>
 
-<section id="future" class="future">
-<h2>Prochainement sur ImprimablesSanté</h2>
-<p>Progressivement : kinésithérapie • sages-femmes • aides-soignants • orthophonie • ergothérapie...</p>
+<!-- ══════════════════════════════════════════════════════════
+     STATS SECTION
+     ══════════════════════════════════════════════════════════ -->
+
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="stat-icon">📄</div>
+      <div class="stat-number">30+</div>
+      <div class="stat-label">Documents disponibles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Gratuit & accessible</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-number">Instant</div>
+      <div class="stat-label">Téléchargement rapide</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">✓</div>
+      <div class="stat-number">Pro</div>
+      <div class="stat-label">Qualité professionnelle</div>
+    </div>
+  </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN CONTENT
+     ══════════════════════════════════════════════════════════ -->
+
+<main class="main-container">
+
+  <!-- Section Ressources -->
+
+  <section id="ressources" class="section">
+    <div class="section-header reveal">
+      <span class="section-badge">🩺 Spécial infirmiers</span>
+      <h2>Toutes vos ressources au même endroit</h2>
+      <p>
+        Des documents professionnels validés, conçus pour vous faire gagner du temps et améliorer la qualité de vos soins.
+      </p>
+    </div>
+
+```
+<div class="cards-grid">
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop&q=80" alt="Dossier patient">
+      <div class="card-overlay"></div>
+      <div class="card-icon">📋</div>
+    </div>
+    <div class="card-content">
+      <h3>Dossier patient</h3>
+      <p>
+        Recueil de données complet, antécédents médicaux, informations administratives et évaluation de l'autonomie.
+      </p>
+      <a href="infirmiers/dossier-patient.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+  
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&h=400&fit=crop&q=80" alt="Surveillance médicale">
+      <div class="card-overlay"></div>
+      <div class="card-icon">🩺</div>
+    </div>
+    <div class="card-content">
+      <h3>Surveillance & constantes</h3>
+      <p>
+        Tension artérielle, pouls, SpO₂, échelle de douleur, hydratation et observations quotidiennes.
+      </p>
+      <a href="infirmiers/surveillance.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+  
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=400&fit=crop&q=80" alt="Médicaments">
+      <div class="card-overlay"></div>
+      <div class="card-icon">💊</div>
+    </div>
+    <div class="card-content">
+      <h3>Médicaments</h3>
+      <p>
+        Suivi thérapeutique détaillé, observance, préparation de piluliers et surveillance des anticoagulants.
+      </p>
+      <a href="infirmiers/medicaments.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+  
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&h=400&fit=crop&q=80" alt="Pansements">
+      <div class="card-overlay"></div>
+      <div class="card-icon">🩹</div>
+    </div>
+    <div class="card-content">
+      <h3>Pansements & plaies</h3>
+      <p>
+        Évaluation des plaies, suivi évolutif, prévention des escarres et choix de pansements adaptés.
+      </p>
+      <a href="infirmiers/pansements.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+  
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=400&fit=crop&q=80" alt="Pathologies">
+      <div class="card-overlay"></div>
+      <div class="card-icon">❤️</div>
+    </div>
+    <div class="card-content">
+      <h3>Pathologies chroniques</h3>
+      <p>
+        Diabète, insuffisance cardiaque, BPCO, HTA et fiches d'éducation thérapeutique spécifiques.
+      </p>
+      <a href="infirmiers/pathologies.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+  
+  <div class="resource-card reveal">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Organisation">
+      <div class="card-overlay"></div>
+      <div class="card-icon">📊</div>
+    </div>
+    <div class="card-content">
+      <h3>Organisation des soins</h3>
+      <p>
+        Plans de soins personnalisés, transmissions ciblées, coordination et priorisation des interventions.
+      </p>
+      <a href="infirmiers/organisation.html" class="card-link">
+        Accéder aux fiches →
+      </a>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- Section CTA avec image -->
+
+  <section id="futur" class="cta-section reveal">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h2>Prochainement : encore plus de métiers</h2>
+        <p>
+          Nous étendons progressivement notre catalogue pour couvrir tous les professionnels de la santé.
+        </p>
+        <ul class="cta-list">
+          <li>Kinésithérapie & rééducation</li>
+          <li>Sages-femmes & périnatalité</li>
+          <li>Aides-soignants & accompagnement</li>
+          <li>Orthophonie & troubles du langage</li>
+          <li>Ergothérapie & autonomie</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">
+          <span>🔔 Restez informé</span>
+        </a>
+      </div>
+      <div class="cta-image">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=800&fit=crop&q=80" alt="Équipe soignante">
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════ -->
+
 <footer id="contact">
-<p>© 2026 – ImprimablesSanté</p>
-<p>Documents à titre informatif – ne remplacent ni avis médical ni avis juridique.</p>
-<a href="mentions-legales.html">Mentions légales & confidentialité</a>
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3>ImprimablesSanté</h3>
+        <p>
+          Votre bibliothèque de documents professionnels gratuits pour faciliter votre pratique quotidienne. Téléchargez, imprimez, soignez.
+        </p>
+        <p style="font-size: 0.9rem; opacity: 0.6; margin-top: 2rem;">
+          © 2026 ImprimablesSanté. Tous droits réservés.
+        </p>
+      </div>
+
+```
+  <div class="footer-section">
+    <h4>Ressources</h4>
+    <ul>
+      <li><a href="infirmiers/index.html">Infirmiers</a></li>
+      <li><a href="#futur">Prochainement</a></li>
+      <li><a href="#ressources">Catalogue</a></li>
+    </ul>
+  </div>
+  
+  <div class="footer-section">
+    <h4>Informations</h4>
+    <ul>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+      <li><a href="confidentialite.html">Confidentialité</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  
+  <div class="footer-section">
+    <h4>Suivez-nous</h4>
+    <ul>
+      <li><a href="#">📘 Facebook</a></li>
+      <li><a href="#">📸 Instagram</a></li>
+      <li><a href="#">💼 LinkedIn</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  <p>Documents à titre informatif – ne remplacent ni avis médical ni avis juridique.</p>
+  <p>Consultez toujours un professionnel de santé qualifié.</p>
+</div>
+```
+
+  </div>
 </footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════════════════ -->
 
 <script>
 // Effet scroll navbar
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').classList.toggle('scrolled', window.scrollY>80);
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const offsetTop = target.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+});
+
+// Animation au scroll - Reveal
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealOnScroll = () => {
+  const windowHeight = window.innerHeight;
+  
+  revealElements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const revealPoint = 100;
+    
+    if (elementTop < windowHeight - revealPoint) {
+      element.classList.add('active');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Initial check
+
+// Parallax léger sur les formes du hero
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const shapes = document.querySelectorAll('.hero-shape');
+  
+  shapes.forEach((shape, index) => {
+    const speed = 0.3 + (index * 0.1);
+    shape.style.transform = `translateY(${scrolled * speed}px)`;
+  });
 });
 </script>
 
