@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ImprimablesSanté – Documents santé gratuits à imprimer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="ImprimablesSanté propose des documents professionnels gratuits à imprimer pour les soignants : fiches de suivi patients, dossiers de soins, constantes, pathologies, organisation. Ressources infirmiers en priorité.">
+  <meta name="keywords" content="imprimables santé, documents santé gratuits, fiches soins infirmiers, suivi patient infirmier, dossier de soins pdf">
+  <meta name="author" content="ImprimablesSanté">
+
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS intégré -->
+  <style>
+    /* 🌟 RESET & BASE */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', Arial, sans-serif; background:#f5f7fa; color:#333; line-height:1.6; }
+
+    /* 🌈 COULEURS PRINCIPALES */
+    :root { --primary:#0b5ed7; --secondary:#1c1c1e; --accent:#f0f4ff; --hover:#084298; }
+
+    /* HEADER */
+    header {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+    header h1 { font-size: 2.5rem; margin-bottom:10px; }
+    header .subtitle { font-size:1.2rem; font-weight:400; }
+
+    /* MAIN CONTAINER */
+    .container { max-width:1200px; margin:auto; padding:40px 20px; }
+
+    /* INTRO SECTION */
+    .intro { text-align:center; margin-bottom:50px; font-size:1.1rem; color:var(--secondary); }
+
+    /* CARDS */
+    .card {
+      background: var(--accent);
+      padding: 25px 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+    .card h2, .card h3 { color: var(--primary); margin-bottom:15px; }
+    .card p { font-size:1rem; color: var(--secondary); }
+
+    /* BTN */
+    .btn {
+      display:inline-block;
+      margin-top:15px;
+      padding:14px 22px;
+      background: var(--primary);
+      color:#fff;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover { background: var(--hover); transform: scale(1.05); }
+
+    /* GRID LAYOUT */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px; margin-top:40px; }
+
+    /* FUTURE SECTION */
+    .future {
+      background: #fff4e6;
+      padding:30px;
+      border-radius:15px;
+      text-align:center;
+      margin-top:50px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align:center;
+      padding:35px 20px;
+      margin-top:60px;
+    }
+    footer a { color:#fff; text-decoration:underline; font-weight:500; }
+    footer p { margin-bottom:5px; font-size:0.9rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      header h1{ font-size:2rem; }
+      header .subtitle{ font-size:1rem; }
+      .card{ padding:20px; }
+      .btn{ padding:12px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>ImprimablesSanté</h1>
+  <p class="subtitle">Documents professionnels gratuits pour les soignants</p>
+</header>
+
+<!-- CONTENU PRINCIPAL -->
+<main class="container">
+
+  <!-- INTRO -->
+  <section class="intro">
+    <p>
+      <strong>ImprimablesSanté</strong> met à disposition des professionnels de santé
+      des documents clairs, pratiques et prêts à imprimer pour le
+      <strong>suivi des patients</strong> et l’organisation des soins.
+    </p>
+    <p>
+      Le site se concentre dans un premier temps sur les
+      <strong>ressources infirmières</strong>, avec pour objectif d’élargir
+      progressivement à d’autres professions de santé.
+    </p>
+  </section>
+
+  <!-- SECTION INFIRMIERS -->
+  <section class="card highlight">
+    <h2>👩‍⚕️ Ressources pour infirmiers</h2>
+    <p>
+      Fiches de suivi patient, dossiers de soins, surveillance clinique,
+      pathologies chroniques, pansements, transmissions et organisation
+      professionnelle.
+    </p>
+    <a href="/infirmiers/index.html" class="btn">
+      Accéder aux documents infirmiers
+    </a>
+  </section>
+
+  <!-- APERÇU DES SECTIONS -->
+  <section class="grid">
+
+    <div class="card">
+      <h3>🗂️ Dossier patient</h3>
+      <p>Recueil de données, informations administratives, antécédents, autonomie.</p>
+      <a href="/infirmiers/dossier-patient.html" class="btn">Voir les fiches</a>
+    </div>
+
+    <div class="card">
+      <h3>🩺 Surveillance & constantes</h3>
+      <p>TA, température, SpO2, douleur, hydratation, poids, observation quotidienne.</p>
+      <a href="/infirmiers/surveillance.html" class="btn">Voir les fiches</a>
+    </div>
+
+    <div class="card">
+      <h3>💊 Médicaments</h3>
+      <p>Suivi des traitements, observance, pilulier, anticoagulants.</p>
+      <a href="/infirmiers/medicaments.html" class="btn">Voir les fiches</a>
+    </div>
+
+    <div class="card">
+      <h3>🩹 Pansements & plaies</h3>
+      <p>Évaluation plaies, suivi pansements, prévention escarres.</p>
+      <a href="/infirmiers/pansements.html" class="btn">Voir les fiches</a>
+    </div>
+
+    <div class="card">
+      <h3>🍬 Pathologies chroniques</h3>
+      <p>Diabète, insuffisance cardiaque, BPCO, HTA, suivi des patients chroniques.</p>
+      <a href="/infirmiers/pathologies.html" class="btn">Voir les fiches</a>
+    </div>
+
+    <div class="card">
+      <h3>📊 Organisation des soins</h3>
+      <p>Plan de soins, coordination, transmissions, suivi de prise en charge.</p>
+      <a href="/infirmiers/organisation.html" class="btn">Voir les fiches</a>
+    </div>
+
+  </section>
+
+  <!-- FUTUR -->
+  <section class="future">
+    <h2>🔮 À venir sur ImprimablesSanté</h2>
+    <p>
+      De nouvelles ressources seront progressivement ajoutées pour
+      <strong>d’autres professions de santé</strong> : kinésithérapeutes,
+      sages-femmes, aides-soignants, orthophonistes…
+    </p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 – ImprimablesSanté</p>
+  <p>Documents fournis à titre informatif – ne remplacent pas un avis médical ou juridique.</p>
+  <a href="/mentions-legales.html">Mentions légales</a>
+</footer>
+
+</body>
+</html>
