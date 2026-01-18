@@ -1,169 +1,535 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>ImprimablesSanté – Ressources infirmiers</title>
-  <meta name="description" content="Ressources et documents infirmiers gratuits à imprimer : dossier patient, surveillance, médicaments, pansements, pathologies, organisation.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Ressources Infirmiers – ImprimablesSanté</title>
+<meta name="description" content="Documents gratuits pour infirmiers : dossiers patients, surveillance, médicaments, pansements, pathologies et organisation des soins.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --accent: #10b981;
+  --accent-warm: #f59e0b;
+  --coral: #ef4444;
+  --bg: #fafbfc;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --pastel-blue: #dbeafe;
+  --pastel-green: #d1fae5;
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'DM Serif Display', serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.logo-emoji {
+  font-size: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Header */
+.page-header {
+  padding: 150px 2rem 80px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  opacity: 0.1;
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Main Content */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 2rem;
+}
+
+.section {
+  margin-bottom: 80px;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.section-intro h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.section-intro p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Cards Grid */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.resource-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.card-icon {
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.card-content {
+  padding: 3rem 2rem 2rem;
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--pastel-green);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.card-content p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4rem 2rem 2rem;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-container p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
   
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  .nav-links {
+    display: none;
+  }
+  
+  .page-header {
+    padding: 120px 1rem 60px;
+  }
+}
+</style>
 
-  <!-- CSS MODERNE -->
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Inter',Arial,sans-serif;background:#fafafb;color:#2e2e2e;line-height:1.7;}
-
-    :root{
-      --primary:#1d3f72;
-      --primary-light:#3267a8;
-      --accent:#ffffff;
-      --text-dark:#1c1c1e;
-      --text-muted:#555;
-      --border:#e1e4e8;
-      --shadow-light:rgba(0,0,0,0.08);
-    }
-
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      background:var(--primary);
-      padding:15px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:100;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    }
-    nav a{color:#fff;text-decoration:none;font-weight:600;margin-left:25px;transition:opacity 0.3s;}
-    nav a:hover{opacity:0.8;}
-    nav .logo{font-size:1.6rem;font-weight:700;}
-
-    header{
-      background:var(--primary);
-      color:#fff;
-      text-align:center;
-      padding:100px 20px 60px 20px;
-      margin-top:60px;
-    }
-    header h1{font-size:2.8rem;margin-bottom:12px;}
-    header p{font-size:1.2rem;opacity:0.9;}
-
-    main.container{max-width:1200px;margin:0 auto;padding:60px 20px;}
-    section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:var(--primary);}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-bottom:60px;}
-    .card{background:var(--accent);border-radius:14px;padding:28px 24px;box-shadow:0 8px 20px var(--shadow-light);border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;}
-    .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,0.12);}
-    .card h3{font-size:1.4rem;color:var(--primary);margin-bottom:12px;}
-    .card p{font-size:1rem;color:var(--text-muted);}
-    .card .btn{margin-top:15px;display:inline-block;}
-    .icon-block{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
-    .icon-block img{width:32px;height:32px;}
-    .btn{display:inline-block;padding:14px 28px;background:var(--primary);color:#fff;font-weight:600;border-radius:10px;text-decoration:none;border:2px solid transparent;transition:background 0.3s,border-color 0.3s,transform 0.2s;}
-    .btn:hover{background:var(--primary-light);border-color:var(--primary-light);transform:scale(1.04);}
-    footer{background:var(--primary);color:#fff;text-align:center;padding:35px 20px;font-size:0.95rem;}
-    footer a{color:#fff;text-decoration:underline;}
-    footer p{margin-bottom:5px;}
-    @media(max-width:768px){nav a{margin-left:15px;}header h1{font-size:2.2rem;}header p{font-size:1.05rem;}}
-  </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">ImprimablesSanté</div>
-  <div>
-    <a href="/index.html">Accueil</a>
-    <a href="#infirmiers">Ressources</a>
-    <a href="#contact">Contact</a>
+<!-- Navigation -->
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="logo">
+      <span class="logo-emoji">🏥</span>
+      ImprimablesSanté
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Accueil</a>
+      <a href="#ressources">Ressources</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
-<!-- HEADER -->
-<header>
-  <h1>Ressources infirmiers gratuites à imprimer</h1>
-  <p>Dossier patient, surveillance, médicaments, pansements, pathologies et organisation</p>
+<!-- Header -->
+
+<header class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Accueil</a>
+    <span>→</span>
+    <span>Ressources Infirmiers</span>
+  </div>
+  <h1>Ressources pour Infirmiers</h1>
+  <p>
+    Découvrez notre collection complète de documents professionnels gratuits, conçus pour faciliter votre pratique quotidienne et améliorer la qualité de vos soins.
+  </p>
 </header>
 
-<main class="container">
+<!-- Main Content -->
 
-  <!-- INTRO -->
-  <section class="intro">
-    <p>Cette page centralise toutes les ressources infirmiers disponibles sur ImprimablesSanté. Cliquez sur une catégorie pour accéder aux fiches et documents PDF prêts à télécharger et imprimer.</p>
-  </section>
-
-  <!-- GRID CATEGORIES -->
-  <section id="infirmiers">
-    <h2>Catégories de documents</h2>
-    <div class="grid">
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/folder-invoices.png"/>
-          <h3>Dossier patient</h3>
-        </div>
-        <p>Fiches d'identification, informations administratives, antécédents, consentements et autonomie.</p>
-        <a href="/infirmiers/dossier-patient.html" class="btn">Voir les fiches</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/stethoscope.png"/>
-          <h3>Surveillance & constantes</h3>
-        </div>
-        <p>TA, température, SpO2, douleur, hydratation, poids et observation quotidienne.</p>
-        <a href="/infirmiers/surveillance.html" class="btn">Voir les fiches</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/pill.png"/>
-          <h3>Médicaments</h3>
-        </div>
-        <p>Suivi des traitements, observance, pilulier, anticoagulants et gestion thérapeutique.</p>
-        <a href="/infirmiers/medicaments.html" class="btn">Voir les fiches</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/band-aid.png"/>
-          <h3>Pansements & plaies</h3>
-        </div>
-        <p>Évaluation des plaies, suivi des pansements, prévention des escarres.</p>
-        <a href="/infirmiers/pansements.html" class="btn">Voir les fiches</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/heart.png"/>
-          <h3>Pathologies chroniques</h3>
-        </div>
-        <p>Diabète, insuffisance cardiaque, BPCO, HTA et suivi des patients chroniques.</p>
-        <a href="/infirmiers/pathologies.html" class="btn">Voir les fiches</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-block">
-          <img src="https://img.icons8.com/ios-filled/50/1d3f72/organization.png"/>
-          <h3>Organisation des soins</h3>
-        </div>
-        <p>Plan de soins, coordination, transmissions et suivi de la prise en charge.</p>
-        <a href="/infirmiers/organisation.html" class="btn">Voir les fiches</a>
-      </div>
-
+<main class="main-container">
+  <section class="section" id="ressources">
+    <div class="section-intro">
+      <h2>6 catégories de documents à votre disposition</h2>
+      <p>
+        Chaque catégorie contient des fiches pratiques prêtes à imprimer, validées et régulièrement mises à jour.
+      </p>
     </div>
-  </section>
 
+```
+<div class="resources-grid">
+  <!-- Dossier Patient -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop&q=80" alt="Dossier patient">
+      <div class="card-overlay"></div>
+      <div class="card-icon">📋</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">12 documents</span>
+      <h3>Dossier patient</h3>
+      <p>
+        Fiches de recueil de données complètes, antécédents médicaux et chirurgicaux, informations administratives, évaluation de l'autonomie et des besoins.
+      </p>
+      <a href="dossier-patient.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+  
+  <!-- Surveillance -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&h=400&fit=crop&q=80" alt="Surveillance">
+      <div class="card-overlay"></div>
+      <div class="card-icon">🩺</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">15 documents</span>
+      <h3>Surveillance & constantes</h3>
+      <p>
+        Feuilles de surveillance des constantes vitales, tension artérielle, pouls, SpO₂, température, échelles de douleur, hydratation et diurèse.
+      </p>
+      <a href="surveillance.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+  
+  <!-- Médicaments -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=400&fit=crop&q=80" alt="Médicaments">
+      <div class="card-overlay"></div>
+      <div class="card-icon">💊</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">10 documents</span>
+      <h3>Médicaments</h3>
+      <p>
+        Suivi thérapeutique détaillé, observance médicamenteuse, préparation de piluliers hebdomadaires, surveillance des anticoagulants oraux (AVK/AOD).
+      </p>
+      <a href="medicaments.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+  
+  <!-- Pansements -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&h=400&fit=crop&q=80" alt="Pansements">
+      <div class="card-overlay"></div>
+      <div class="card-icon">🩹</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">8 documents</span>
+      <h3>Pansements & plaies</h3>
+      <p>
+        Évaluation des plaies chroniques, suivi évolutif avec photos, prévention et traitement des escarres, protocoles de pansements modernes.
+      </p>
+      <a href="pansements.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+  
+  <!-- Pathologies -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=400&fit=crop&q=80" alt="Pathologies">
+      <div class="card-overlay"></div>
+      <div class="card-icon">❤️</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">14 documents</span>
+      <h3>Pathologies chroniques</h3>
+      <p>
+        Fiches de suivi diabète, insuffisance cardiaque, BPCO, hypertension artérielle, éducation thérapeutique du patient et surveillance spécifique.
+      </p>
+      <a href="pathologies.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+  
+  <!-- Organisation -->
+  <div class="resource-card">
+    <div class="card-image">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Organisation">
+      <div class="card-overlay"></div>
+      <div class="card-icon">📊</div>
+    </div>
+    <div class="card-content">
+      <span class="card-badge">9 documents</span>
+      <h3>Organisation des soins</h3>
+      <p>
+        Plans de soins personnalisés, transmissions ciblées, coordination pluridisciplinaire, grilles de priorisation et planification des interventions.
+      </p>
+      <a href="organisation.html" class="card-link">
+        Voir les documents →
+      </a>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
 </main>
 
-<!-- FOOTER -->
-<footer id="contact">
-  <p>© 2026 – ImprimablesSanté</p>
-  <p>Documents fournis à titre informatif – ne remplacent pas un avis médical ou juridique.</p>
-  <a href="#contact">Mentions légales</a>
+<!-- Footer -->
+
+<footer>
+  <div class="footer-container">
+    <p><strong>ImprimablesSanté</strong> – Documents professionnels gratuits pour les soignants</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">
+      Documents à titre informatif – ne remplacent ni avis médical ni avis juridique.
+    </p>
+    <div class="footer-links">
+      <a href="../index.html">Accueil</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <p style="font-size: 0.85rem; opacity: 0.5; margin-top: 2rem;">
+      © 2026 ImprimablesSanté. Tous droits réservés.
+    </p>
+  </div>
 </footer>
 
 </body>
