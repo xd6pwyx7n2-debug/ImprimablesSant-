@@ -3,201 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <title>ImprimablesSanté – Documents santé gratuits à imprimer</title>
-
-  <!-- SEO -->
-  <meta name="description" content="ImprimablesSanté propose des documents professionnels gratuits à imprimer pour les soignants : fiches de suivi patients, dossiers de soins, constantes, pathologies, organisation. Ressources infirmiers en priorité.">
+  <meta name="description" content="ImprimablesSanté propose des documents professionnels gratuits à imprimer pour les soignants : fiches de suivi patients, dossiers de soins, constantes, pathologies, organisation.">
   <meta name="keywords" content="imprimables santé, documents santé gratuits, fiches soins infirmiers, suivi patient infirmier, dossier de soins pdf">
-  <meta name="author" content="ImprimablesSanté">
-
-  <!-- Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS intégré -->
+  <!-- CSS MODERNE INTÉGRÉ -->
   <style>
-    /* 🌟 RESET & BASE */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Inter', Arial, sans-serif; background:#f5f7fa; color:#333; line-height:1.6; }
+    /* RESET */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',Arial,sans-serif;background:#fafafb;color:#2e2e2e;line-height:1.7;}
 
-    /* 🌈 COULEURS PRINCIPALES */
-    :root { --primary:#0b5ed7; --secondary:#1c1c1e; --accent:#f0f4ff; --hover:#084298; }
-
-    /* HEADER */
-    header {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    /* VARIABLES */
+    :root{
+      --primary:#1d3f72;
+      --primary-light:#3267a8;
+      --accent:#ffffff;
+      --text-dark:#1c1c1e;
+      --text-muted:#555;
+      --border:#e1e4e8;
+      --shadow-light:rgba(0,0,0,0.08);
     }
-    header h1 { font-size: 2.5rem; margin-bottom:10px; }
-    header .subtitle { font-size:1.2rem; font-weight:400; }
 
-    /* MAIN CONTAINER */
-    .container { max-width:1200px; margin:auto; padding:40px 20px; }
-
-    /* INTRO SECTION */
-    .intro { text-align:center; margin-bottom:50px; font-size:1.1rem; color:var(--secondary); }
-
-    /* CARDS */
-    .card {
-      background: var(--accent);
-      padding: 25px 30px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
+    /* NAVBAR */
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:var(--primary);
+      padding:15px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:100;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
-    .card h2, .card h3 { color: var(--primary); margin-bottom:15px; }
-    .card p { font-size:1rem; color: var(--secondary); }
-
-    /* BTN */
-    .btn {
-      display:inline-block;
-      margin-top:15px;
-      padding:14px 22px;
-      background: var(--primary);
+    nav a{
       color:#fff;
-      border-radius:12px;
       text-decoration:none;
       font-weight:600;
-      transition: background 0.3s, transform 0.2s;
+      margin-left:25px;
+      transition:opacity 0.3s;
     }
-    .btn:hover { background: var(--hover); transform: scale(1.05); }
+    nav a:hover{opacity:0.8;}
+    nav .logo{font-size:1.6rem;font-weight:700;}
 
-    /* GRID LAYOUT */
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px; margin-top:40px; }
+    /* HERO */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:var(--primary);
+      color:#fff;
+      padding:140px 20px 80px 20px;
+    }
+    .hero h1{font-size:3rem;margin-bottom:15px;}
+    .hero p{font-size:1.3rem;margin-bottom:25px;opacity:0.9;}
+    .hero .btn{padding:16px 32px;font-size:1.1rem;}
+
+    /* MAIN CONTAINER */
+    main.container{max-width:1200px;margin:0 auto;padding:60px 20px;}
+
+    /* SECTION TITRE */
+    section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:var(--primary);}
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+      margin-bottom:60px;
+    }
+
+    /* CARD */
+    .card{
+      background:var(--accent);
+      border-radius:14px;
+      padding:28px 24px;
+      box-shadow:0 8px 20px var(--shadow-light);
+      border:1px solid var(--border);
+      transition:transform 0.3s,box-shadow 0.3s;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,0.12);}
+    .card h3{font-size:1.4rem;color:var(--primary);margin-bottom:12px;}
+    .card p{font-size:1rem;color:var(--text-muted);}
+    .card .btn{margin-top:15px;display:inline-block;}
+
+    /* ICON BLOCK */
+    .icon-block{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+    .icon-block svg, .icon-block img{width:32px;height:32px;}
+
+    /* BTN */
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:var(--primary);
+      color:#fff;
+      font-weight:600;
+      border-radius:10px;
+      text-decoration:none;
+      border:2px solid transparent;
+      transition:background 0.3s,border-color 0.3s,transform 0.2s;
+    }
+    .btn:hover{background:var(--primary-light);border-color:var(--primary-light);transform:scale(1.04);}
 
     /* FUTURE SECTION */
-    .future {
-      background: #fff4e6;
-      padding:30px;
+    .future{
+      background:#fff4e6;
+      padding:40px;
       border-radius:15px;
       text-align:center;
       margin-top:50px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+      box-shadow:0 6px 15px rgba(0,0,0,0.07);
     }
 
     /* FOOTER */
-    footer {
-      background: var(--primary);
-      color: #fff;
+    footer{
+      background:var(--primary);
+      color:#fff;
       text-align:center;
       padding:35px 20px;
-      margin-top:60px;
+      font-size:0.95rem;
     }
-    footer a { color:#fff; text-decoration:underline; font-weight:500; }
-    footer p { margin-bottom:5px; font-size:0.9rem; }
+    footer a{color:#fff;text-decoration:underline;}
+    footer p{margin-bottom:5px;}
+
+    /* INTRO */
+    .intro{text-align:center;max-width:800px;margin:40px auto 60px auto;font-size:1.15rem;color:var(--text-dark);padding:0 15px;}
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      header h1{ font-size:2rem; }
-      header .subtitle{ font-size:1rem; }
-      .card{ padding:20px; }
-      .btn{ padding:12px 18px; }
+      nav a{margin-left:15px;}
+      .hero h1{font-size:2.4rem;}
+      .hero p{font-size:1.1rem;}
+      .btn{padding:12px 24px;}
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <h1>ImprimablesSanté</h1>
-  <p class="subtitle">Documents professionnels gratuits pour les soignants</p>
-</header>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">ImprimablesSanté</div>
+  <div>
+    <a href="#infirmiers">Infirmiers</a>
+    <a href="#future">Futur</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-<!-- CONTENU PRINCIPAL -->
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>Des documents santé gratuits et prêts à imprimer</h1>
+  <p>Fiches de suivi, dossiers de soins, pathologies, pansements et organisation pour soignants.</p>
+  <a href="#infirmiers" class="btn">Voir les ressources infirmiers</a>
+</section>
+
+<!-- MAIN CONTENT -->
 <main class="container">
 
   <!-- INTRO -->
   <section class="intro">
-    <p>
-      <strong>ImprimablesSanté</strong> met à disposition des professionnels de santé
-      des documents clairs, pratiques et prêts à imprimer pour le
-      <strong>suivi des patients</strong> et l’organisation des soins.
-    </p>
-    <p>
-      Le site se concentre dans un premier temps sur les
-      <strong>ressources infirmières</strong>, avec pour objectif d’élargir
-      progressivement à d’autres professions de santé.
-    </p>
+    <p>ImprimablesSanté met à disposition des professionnels de santé des documents clairs, pratiques et prêts à imprimer pour le suivi des patients et l’organisation des soins. Le site se concentre dans un premier temps sur les infirmiers et s’enrichira ensuite pour d’autres professions de santé.</p>
   </section>
 
-  <!-- SECTION INFIRMIERS -->
-  <section class="card highlight">
-    <h2>👩‍⚕️ Ressources pour infirmiers</h2>
-    <p>
-      Fiches de suivi patient, dossiers de soins, surveillance clinique,
-      pathologies chroniques, pansements, transmissions et organisation
-      professionnelle.
-    </p>
-    <a href="/infirmiers/index.html" class="btn">
-      Accéder aux documents infirmiers
-    </a>
-  </section>
+  <!-- INFIRMIERS -->
+  <section id="infirmiers">
+    <h2>Ressources pour infirmiers</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/folder-invoices.png"/>
+          <h3>Dossier patient</h3>
+        </div>
+        <p>Recueil de données, informations administratives, antécédents, autonomie.</p>
+        <a href="/infirmiers/dossier-patient.html" class="btn">Voir les fiches</a>
+      </div>
 
-  <!-- APERÇU DES SECTIONS -->
-  <section class="grid">
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/stethoscope.png"/>
+          <h3>Surveillance & constantes</h3>
+        </div>
+        <p>TA, température, SpO2, douleur, hydratation, poids, observation quotidienne.</p>
+        <a href="/infirmiers/surveillance.html" class="btn">Voir les fiches</a>
+      </div>
 
-    <div class="card">
-      <h3>🗂️ Dossier patient</h3>
-      <p>Recueil de données, informations administratives, antécédents, autonomie.</p>
-      <a href="/infirmiers/dossier-patient.html" class="btn">Voir les fiches</a>
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/pill.png"/>
+          <h3>Médicaments</h3>
+        </div>
+        <p>Suivi des traitements, observance, pilulier, anticoagulants.</p>
+        <a href="/infirmiers/medicaments.html" class="btn">Voir les fiches</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/band-aid.png"/>
+          <h3>Pansements & plaies</h3>
+        </div>
+        <p>Évaluation plaies, suivi pansements, prévention escarres.</p>
+        <a href="/infirmiers/pansements.html" class="btn">Voir les fiches</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/heart.png"/>
+          <h3>Pathologies chroniques</h3>
+        </div>
+        <p>Diabète, insuffisance cardiaque, BPCO, HTA, suivi des patients chroniques.</p>
+        <a href="/infirmiers/pathologies.html" class="btn">Voir les fiches</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-block">
+          <img src="https://img.icons8.com/ios-filled/50/1d3f72/organization.png"/>
+          <h3>Organisation des soins</h3>
+        </div>
+        <p>Plan de soins, coordination, transmissions, suivi de prise en charge.</p>
+        <a href="/infirmiers/organisation.html" class="btn">Voir les fiches</a>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>🩺 Surveillance & constantes</h3>
-      <p>TA, température, SpO2, douleur, hydratation, poids, observation quotidienne.</p>
-      <a href="/infirmiers/surveillance.html" class="btn">Voir les fiches</a>
-    </div>
-
-    <div class="card">
-      <h3>💊 Médicaments</h3>
-      <p>Suivi des traitements, observance, pilulier, anticoagulants.</p>
-      <a href="/infirmiers/medicaments.html" class="btn">Voir les fiches</a>
-    </div>
-
-    <div class="card">
-      <h3>🩹 Pansements & plaies</h3>
-      <p>Évaluation plaies, suivi pansements, prévention escarres.</p>
-      <a href="/infirmiers/pansements.html" class="btn">Voir les fiches</a>
-    </div>
-
-    <div class="card">
-      <h3>🍬 Pathologies chroniques</h3>
-      <p>Diabète, insuffisance cardiaque, BPCO, HTA, suivi des patients chroniques.</p>
-      <a href="/infirmiers/pathologies.html" class="btn">Voir les fiches</a>
-    </div>
-
-    <div class="card">
-      <h3>📊 Organisation des soins</h3>
-      <p>Plan de soins, coordination, transmissions, suivi de prise en charge.</p>
-      <a href="/infirmiers/organisation.html" class="btn">Voir les fiches</a>
-    </div>
-
   </section>
 
   <!-- FUTUR -->
-  <section class="future">
-    <h2>🔮 À venir sur ImprimablesSanté</h2>
-    <p>
-      De nouvelles ressources seront progressivement ajoutées pour
-      <strong>d’autres professions de santé</strong> : kinésithérapeutes,
-      sages-femmes, aides-soignants, orthophonistes…
-    </p>
+  <section id="future" class="future">
+    <h2>À venir sur ImprimablesSanté</h2>
+    <p>De nouvelles ressources seront progressivement ajoutées pour d’autres professions de santé : kinésithérapeutes, sages-femmes, aides-soignants, orthophonistes…</p>
   </section>
 
 </main>
 
 <!-- FOOTER -->
-<footer>
+<footer id="contact">
   <p>© 2026 – ImprimablesSanté</p>
   <p>Documents fournis à titre informatif – ne remplacent pas un avis médical ou juridique.</p>
-  <a href="/mentions-legales.html">Mentions légales</a>
+  <a href="#contact">Mentions légales</a>
 </footer>
 
 </body>
